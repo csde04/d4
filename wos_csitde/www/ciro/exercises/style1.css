@@ -1,0 +1,63 @@
+body
+	{
+		font-family: Arial;
+		font-size:10pt;
+		background: #DECCCC;
+		padding: 0px;	 	
+	}
+	
+h2
+	{
+		vertical-align: bottom;
+		font-family: Arial;
+		font-size:12pt;
+	}
+	
+#body_local
+	{
+		background: #EEEEFF;
+	}
+
+#main
+	{
+		/* background: transparent; */
+		background: #EEEEFF;
+		/*border: #111111 solid thin; */
+		/*margin: 1pt; */ 
+		position:absolute;
+		top: 30px;
+		left: 10px;
+		right: 10px;
+		bottom: 33px;
+		padding: 1px 1px 1px 1px; 
+	}	
+	
+table
+	{
+		background: #99CCCC;
+		font-family: Arial;
+		font-size:10pt;	
+	}
+td
+	{
+		padding: 2px 2px 2px 2px;
+		margin: 2px 2px 2px 2px;
+		background: #FFFFFF;
+	}	
+p
+	{
+		padding: 3px 3px 3px 3px;
+		margin: 2px 2px 2px 2px;
+		background: #DECCCC;
+	}
+#p1
+	{
+		padding: 1px 1px 1px 1px;
+		margin: 1px 1px 1px 1px;
+		background: #DECCCC;
+		position:absolute; 
+		left: 10px; 
+		bottom: 4px; 
+		right:10px; 
+		text-align: right;
+	}

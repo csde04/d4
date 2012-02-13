@@ -1,0 +1,36 @@
+Installing & Testing phpMyIDE
+=============================
+* Unpack the zip or tar.gz into the directory of your choice.
+
+* Set your web server to point to the same directory.
+
+* Using any text editor, modify the config.php file to reflect 
+  your primary database connection. Detailed information about the
+  settings of these parameters are in that file.
+  
+* run the buildsql.php routine ... this will create the necessary tables
+  for phpMyIDE in your zeroth connection record. If you do not do this, 
+  you will start to see troubles when using the command prompt and printing
+  things.
+  
+* Using your browser, call the testinstall.php page. This small routine
+  will test the requirements for phpMyIDE and return a quick outline of
+  what is available and what is not. Note that if you can't get to that
+  page, then nothing will work at all ;)
+  
+* That's it! You should be all good to go. If you have more troubles, 
+  please contact the development team at http://www.perkiset.org/forum/
+  and address your questions in the phpMyIDE boards.
+
+Permissions
+===========
+Once the package is unpacked, you may consider changing the permissions
+  to help you with security. The steps for this would be (from the IDE root dir):
+  chmod -R 664 *
+  chmod 666 current-connection
+  chmod 775 graphics
+  chmod 775 source
+  chmod 775 resources
+
+
+  

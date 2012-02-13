@@ -1,0 +1,108 @@
+<?
+	
+	
+	$application_title = "VF1 - Case Study: Airplane Ticket Booking Management System";
+	
+	define('MYACTIVERECORD_CONNECTION_STR', 'mysql://root@localhost/airplaneticket');
+	include './include/MyActiveRecord.0.4.php';
+	
+	$classes = array('airline','location','flight','ticket','customer','facility');  //in this array we list all classes we like to CRUD manage from the main menu
+	
+	$join_tables = array('facility_location');	// in this array we list all join tables which hold many to many relationships between two given classes of objects
+	
+	//foreign_keys=array();
+	$foreign_keys = array('airline_id','from_location_id','to_location_id','flight_id','customer_id','status_id','document_id','title_id'); // in this array we list all foreign keys 
+	
+	function name_child_relationship($class_name,$foreign_key)
+	{
+		if ($class_name == 'customer' && $foreign_key == 'title_id')
+		{
+			return " title ";
+		}
+		else if ($class_name == 'customer' && $foreign_key == 'document_id')
+		{
+			return " document ";
+		}
+		else if ($class_name == 'flight' && $foreign_key == 'from_location_id')
+		{
+			return " from ";
+		}
+		else if ($class_name == 'flight' && $foreign_key == 'to_location_id')
+		{
+			return " to ";
+		}
+		else if ($class_name == 'flight' && $foreign_key == 'airline_id')
+		{
+			return " airline ";
+		}
+		else if ($class_name == 'ticket' && $foreign_key == 'flight_id')
+		{
+			return " flight ";
+		}
+		else if ($class_name == 'ticket' && $foreign_key == 'customer_id')
+		{
+			return " customer ";
+		}
+		else if ($class_name == 'ticket' && $foreign_key == 'status_id')
+		{
+			return " status ";
+		}
+	}
+	
+	$objects = array();
+	
+	class airline extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class location extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class flight extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class ticket extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	
+	class status extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class document extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class customer extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class title extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+		
+	class facility extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	
+/*	
+	for ($i=0;$i< count($classes); $i++)
+	{
+		$classname = $classes[$i]."";
+		//echo "<p>".$classname."<p>";
+		$objects[$i] = MyActiveRecord::FindBySql($classes[$i], 'SELECT * FROM '.$classes[$i].' WHERE id > -1 ORDER BY referred_as');
+		//print_r($objects[$i]);
+	}
+*/
+?>

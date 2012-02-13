@@ -1,0 +1,104 @@
+/*
+BSD Licence: http://www.opensource.org/licenses/bsd-license.php
+
+<OWNER> v.v.
+<ORGANISATION> University of Hertfordshire
+<YEAR> 2009
+
+Copyright (c) <YEAR>, <OWNER>
+All rights reserved.
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of the <ORGANISATION> nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+body
+	{
+		font-family: Arial;
+		font-size:12pt;
+		background: #EEEEFA;
+		padding: 10px auto;
+	}
+	
+#main_div
+	{
+		width: XXXXX;
+		height:400px;
+		margin: 2px 2px 2px 2px;
+		border: 1px solid #FFFFFF;	/* white */
+		background: #E3C7BA;
+		padding: 4px 4px; 
+		text-align: center;
+		vertical-align: top;
+	}
+	
+#display
+	{
+		margin-top: 6px;
+		width: 100%;
+		font-family: Arial;
+		font-size: 40;
+		text-align: right;
+		display:inline-block;
+		vertical-align: middle;
+	}
+	
+#display1
+	{
+		width: 100%;	
+		text-align: right;
+	}
+
+#digit-keyboard
+	{
+		position: relative;
+		float: left; 
+		width: 75%;
+		background: #3467AC;
+	}
+	
+#operator-keyboard
+	{
+		position: relative;
+		float: right;
+		width: 25%;
+		background: #88676C;
+	}
+	
+.bcalc
+	{
+		height: 60px;
+		position: relative;
+		margin-left: 1px;
+		margin-top: 2px;
+		margin-right: 2px;
+		margin-bottom: 1px; 
+		float: left;
+		font-family: Arial;
+		font-size: 30;
+		text-align: center;
+		vertical-align: middle;
+		width: 32%;
+		background-image:url('XXXXX.jpg')
+	}
+		
+.boper
+		{
+			width: 97%;
+			margin-left: 2px;
+		}
+	
+input[readonly='true'] {
+	background: #DDDDDD;
+}
+
+input[disabled='true'] {
+	background: #AAAAAA;
+}
+	
+
+	

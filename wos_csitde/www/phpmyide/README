@@ -1,0 +1,55 @@
+phpMyIDE - Readme
+===================
+
+  Version 0.5d
+  ---------------
+  http://www.phpmyide.com/
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2,
+    as published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+  Requirements:
+    php 5.2.1 or later
+    MySQL 5.0 or later (for stored procedures and the like)
+    A web browser - currently tested under Safari 2.0-3.1 and FireFox 2
+
+  Summary:
+    Web based MySQL Stored Procedure, Function and Trigger Management. 
+    Written in PHP and Javascript, this Ajax application is the perfect 
+    companion to phpMyAdmin. Includes command line interface & other special features.
+
+  Download:
+    Source is available at both phpmyide.com and SourceForge, project 
+    is named, cleverly, phpMyIDE.
+
+  Credits:
+    Author: Perkiset
+    Inspiration: DBDog
+    Programming Assistance: TheDarkness
+    Chief Tester: Dink    	
+
+  Installation:
+    Please read the INSTALL text file for more information
+
+  ChangeLog:
+    Please consult http://www.phpmyide.com/
+
+  Documentation:
+    No documentation is currently available other than this file, INSTALL
+    and comments inside the config.php file.
+
+  Support Forum:
+    http://www.perkiset.org/forum/
+
+  Enjoy!
+    The phpMyIDE Development Team
