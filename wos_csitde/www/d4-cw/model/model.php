@@ -18,7 +18,9 @@
 	
 	// in this array below we list all foreign keys: this array MUST EXIST: if empty then uncomment line below (and comment the following one!)
 	//foreign_keys=array();
-	$foreign_keys = array('card_id','staff_id','venue_id','agency_id'); 
+	$foreign_keys = array('card_id','staff_id','venue_id','agency_id',
+			'accessstatus_id','accesstype_id','stafftype_id','status_id',
+			'title_id'); 
 	
 	// relationships between entities/classes are named below: if no name has
 	// been given to a certain relationship, the bare foreign key would be displayed
@@ -35,6 +37,26 @@
 		else if ($class_name == 'staff' && $foreign_key == 'agency_id')
 		{
 			return " agency ";
+		}
+		else if ($class_name == 'staff' && $foreign_key == 'stafftype_id')
+		{
+			return " staff type ";
+		}
+		else if ($class_name == 'staff' && $foreign_key == 'title_id')
+		{
+			return " title ";
+		}
+		else if ($class_name == 'access' && $foreign_key == 'accessstautus_id')
+		{
+			return " access status ";
+		}
+		else if ($class_name == 'access' && $foreign_key == 'accesstype_id')
+		{
+			return " access type ";
+		}
+		else if ($class_name == 'card' && $foreign_key == 'status_id')
+		{
+			return " status ";
 		}
 	}
 	
@@ -70,4 +92,25 @@
 			function destroy(){
 			}	
 		}
+	class title extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	class accessstatus extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	class accesstype extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	class status extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	class stafftype extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+
 ?>
