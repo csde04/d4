@@ -60,9 +60,18 @@
 		echo "<tr>";
 		foreach (MyActiveRecord::Columns($class_value) as $obj_attribute => $obj_attr_value)
 		{
+			// print the ID value on the table as a link or not. . .
 			if ($obj_attribute=="id")
 			{
-				echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+// ####################################### if here = access do not allow update ################################# //
+				if( $here == "access")
+				{
+					echo "<td>".$obj_value->$obj_attribute;
+				}
+				else
+				{
+					echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+				}
 			}
 			else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
 			{

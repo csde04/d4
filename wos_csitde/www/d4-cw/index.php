@@ -1,7 +1,7 @@
 <?
 	include "model/model.php";
 	
-	// VF1 version 1.6
+	// VF1 version 1.5
 ?>
 <html>
 <link rel="shortcut icon" href="include/images/vf1_icon_big.ico" />

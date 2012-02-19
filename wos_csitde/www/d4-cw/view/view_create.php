@@ -29,6 +29,7 @@
 				{
 					//$related_class = substr($wcolumns_key, 0, -3);
 					$related_class = find_relatedclass($wcolumns_key,$foreign_keys);
+					
 					echo "<td><select id='select_".$wcolumns_key."' onChange=javascript:change_obj('".$wcolumns_key."') ><option></option>";
 				
 					foreach ($obj_class = MyActiveRecord::FindBySql($related_class, 'SELECT * FROM '.$related_class.' WHERE id > -1 ORDER BY referred_as') as $obj_attribute => $obj_attr_value)

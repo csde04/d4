@@ -77,7 +77,7 @@ div
 		top: 0; 
 		position: relative; 
 		width:100%;
-		background: pink;
+		background: #AACCEE;
 		overflow: auto; 
 		min-height: 200; 
 		height: 432;
@@ -100,7 +100,7 @@ div
 		border-bottom: solid #111 1px;
 	}
 	
-	#div4
+#div4
 	{
 		float: left;
 		background: #AACCEE;
@@ -172,19 +172,19 @@ h2
 		vertical-align: bottom;
 		font-family: Arial;
 		font-size:16pt;
-		background: #9955FF;	/* 9955FF purple */
-		background: #9955FF;	/* 9955FF purple */
+		background: #EEEEDD;	/* 9955FF purple */
+		background: #535353;	/* 9955FF purple */
 		padding: 3px 3px 3px 3px;
 		margin: 0px 0px 0px 0px; 
 		border: 3px solid #FFFF55;	/* yellow */
-		color: blue;
+		color: yellow;
 	}
 	
 p
 	{
 		padding: 3px 3px 3px 3px;
 		margin: 0px auto;
-		background: blue;
+		/*background: #EEDDEE;*/
 	
 	
 	}
@@ -199,7 +199,7 @@ ul {
 	left:0;
 	/* top:1.5em;  */
 	float:left; 
-	background: green;
+	background:#ddd;
 	width:100%;
 	margin:0;
 	padding:0;
@@ -221,8 +221,8 @@ li{
  .this_page
 	{
 		font-size: 14pt;
-		background: blue; 
-		color: red;		
+		background: #EEEEDD; 
+		color: #6666DD;		
 	}
 
 
@@ -232,8 +232,8 @@ li{
 		font-family: Arial;
 		font-size:12pt;	
 		font-weight: bold;
-		color: white;		/* yellow */
-		background: blue;     /* DDDDAA: light gold; 999999: dark grey  */
+		color: #6666DD;		/* yellow */
+		background: #EEEEDD;     /* DDDDAA: light gold; 999999: dark grey  */
 	}
 
 .p2
@@ -257,11 +257,11 @@ li{
 	{
 		min-width: 60px;
 		font-weight:bold;
-		color: red;
+		color:#0099AA;
 		vertical-align:middle; 
 		text-align:center;
 		border:1px solid #000000; 
-		background: blue;
+		background: yellow;
 		padding: 2px 2px 2px 2px;
 	}
 	

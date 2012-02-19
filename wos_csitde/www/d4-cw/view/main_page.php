@@ -15,7 +15,7 @@
 
 
 <?
-	if ($mode == "create")
+if ($mode == "create")
 {
 	echo "<div id='div_right'>";
 	echo "<script>document.getElementById('div2').style.width = '60%';</script>";
