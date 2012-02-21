@@ -9,7 +9,9 @@
 		{
 			echo "<li><a href=". $current_file_name."?here=".$class_value.">".$class_value."</a></li>";
 		}
-
+		
+		// addition menu item which links to "Enter Card" page.
+		echo "<li><a href=". $current_file_name."?here=entercard>enter card</a></li>";
 	}
 	else if ($here != "")
 	{
@@ -24,6 +26,16 @@
 			{
 				echo "<li class=this_page>".$here."</li>";
 			}
+		}
+		
+		// additional menu item "Enter Card"
+		if ($here != "entercard")
+		{
+			echo "<li><a href=". $current_file_name."?here=entercard>enter card</a></li>";
+		}
+		else
+		{
+			echo "<li class=this_page>enter card</li>";
 		}
 	}
 	

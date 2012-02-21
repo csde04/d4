@@ -7,6 +7,17 @@
 </div>
 <?
 		}	//end $here == ""
+		
+		// additional menu "enter card" code
+		if ($here == "entercard")
+		{
+			?>
+			<div id="div2" class=div_mainpage>
+				<?  include 'enter_card.php'; ?>
+			</div>
+			<?
+		}
+		
 		foreach ($classes as $class_key => $class_value)
 		{
 			if($here == $class_value)
