@@ -1,14 +1,7 @@
+<?  include 'main_page_customization.php'; ?>
+
 <?
-		if ($here == "")
-		{
-?>
-<div id="div2" class=div_mainpage>
-	<?  include 'main_page_customization.php'; ?>
-</div>
-<?
-		}	//end $here == ""
-		
-		// additional menu "enter card" code
+	// additional menu "enter card" code
 		if ($here == "entercard")
 		{
 			?>
@@ -17,7 +10,9 @@
 			</div>
 			<?
 		}
-		
+
+
+
 		foreach ($classes as $class_key => $class_value)
 		{
 			if($here == $class_value)
@@ -29,7 +24,6 @@
 <? 
 
 // let's create a context sensitive sub menu for each class of the system
-// ################################ if here = access do not allow create ###################### //
 				if( $here == "access")
 				{
 					if ($mode == "" || $mode == "confirm_search")

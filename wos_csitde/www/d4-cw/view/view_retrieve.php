@@ -9,7 +9,7 @@
 	{
 		if(MyActiveRecord::GetType($class_obj,$wcolumns_key) == 'date')
 		{
-			echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value=''>";
+			echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value='".$_REQUEST['input_'.$wcolumns_key]."'>";
 			echo "<td><input type=button value='Set Date' onclick=displayDatePicker('input_".$wcolumns_key."',false,'ymd','-'); >";
 				
 				//echo "<tr id='arow'><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value='' datepicker='true' datepicker_format='DD/MM/YYYY'>";
@@ -17,7 +17,8 @@
 		}
 		else
 		{
-			echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value=''>";
+			//echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value=''>";
+			echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value='".$_REQUEST['input_'.$wcolumns_key]."'>";
 			if (strlen($wcolumns_key)> 2 && !(strpos($wcolumns_key,"_id")===false))
 			{
 				//$related_class = substr($wcolumns_key, 0, -3);
@@ -26,7 +27,12 @@
 				
 				foreach ($obj_class = MyActiveRecord::FindBySql($related_class, 'SELECT * FROM '.$related_class.' WHERE id > -1 ORDER BY referred_as') as $obj_attribute => $obj_attr_value)
 				{
-					echo "<option value='".$obj_attr_value->id."'>".$obj_attr_value->id." - ".$obj_attr_value->referred_as;
+					echo "<option value='".$obj_attr_value->id."' ";
+					if ($_REQUEST['input_'.$wcolumns_key] == $obj_attr_value->id)
+					{
+						echo " selected ";
+					}
+					echo ">".$obj_attr_value->id." - ".$obj_attr_value->referred_as;
 					if (strlen($wcolumns_key)> 2 && !(strpos($wcolumns_key,"_id")===false))
 					{
 						//$related_superclass = substr($wcolumns_key, 0, -3);
@@ -72,7 +78,17 @@
 	}
 	
 	
-	echo "<tr><td>Search condition<td><select name='search_operator'><option value='AND'>AND</option><option value='OR'>OR</option></select>";
+	echo "<tr><td>Search condition<td><select name='search_operator'><option value='AND'";
+	if ($_REQUEST['search_operator'] == 'AND')
+	{
+		echo " selected ";
+	}
+	echo ">AND</option><option value='OR'";
+	if ($_REQUEST['search_operator'] == 'OR')
+	{
+		echo " selected ";
+	}
+	echo ">OR</option></select>";
 	echo "<td><input type=submit></table></form>";
 	
 ?>

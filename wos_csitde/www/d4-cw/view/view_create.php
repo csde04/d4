@@ -1,9 +1,15 @@
 <?
 
-	
 	$class_obj=$_REQUEST['class_obj'];
-	echo "<p class='p1'>CREATE </p>";
-	echo "<table class=table1><form action=".$current_file_name."?here=".$here."&mode=confirm_create&class_obj=".$class_obj." method=post>";
+	
+	echo "<p class='p1'>CREATE new ".$class_obj."</p>";
+	if (isset($_REQUEST['post_create']))
+	{
+		post_create_message($_REQUEST['post_create'],$class_obj);
+	}
+	
+	
+	echo "<table class=table1><form id=form_create action=".$current_file_name."?here=".$here."&mode=confirm_create&class_obj=".$class_obj." method=post>";
 	
 	$w_columns = MyActiveRecord::Columns($class_obj);
 	foreach($w_columns as $wcolumns_key => $wcolumns_value)
@@ -29,7 +35,6 @@
 				{
 					//$related_class = substr($wcolumns_key, 0, -3);
 					$related_class = find_relatedclass($wcolumns_key,$foreign_keys);
-					
 					echo "<td><select id='select_".$wcolumns_key."' onChange=javascript:change_obj('".$wcolumns_key."') ><option></option>";
 				
 					foreach ($obj_class = MyActiveRecord::FindBySql($related_class, 'SELECT * FROM '.$related_class.' WHERE id > -1 ORDER BY referred_as') as $obj_attribute => $obj_attr_value)
@@ -84,7 +89,7 @@
 	}
 	
 	
-	echo "<tr><td><td><input type=submit><td><input type=reset >";
+	echo "<tr><td><td><input type=button value='Create new ".$here."' onClick=javascript:confirm_create('form_create');><td><input type=reset >";
 	echo "</table></form>";
 	
 ?>

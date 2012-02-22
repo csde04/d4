@@ -18,6 +18,8 @@
    
    $this_obj->save();			// crucial command: disactivate  only if you don't want to save... 
    
+   $last_inserted_record = $this_obj->id;
+   
    $relation_name = $_REQUEST['jt_name'];
    $relation_class = $_REQUEST['jt_class'];
    

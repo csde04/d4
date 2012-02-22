@@ -54,7 +54,14 @@
 				{
 					// echo "<option>".$obj_attribute." - ".$obj_attr_value->referred_as;    // it works, but...
 					
-					echo "<tr><td><td>".$obj_attr_value->referred_as." <td><input type=checkbox id='jt_input_".$there."_".$i."' name='jt_input_".$there."_".$i."' value='".$obj_attr_value->id."'>";
+					echo "<tr><td><td>".$obj_attr_value->referred_as." <td><input type=checkbox id='jt_input_".$there."_".$i."' name='jt_input_".$there."_".$i."' value='".$obj_attr_value->id."'";
+					
+					if ($_REQUEST['jt_input_'.$there.'_'.$i] == $obj_attr_value->id)
+					{
+						echo " checked ";
+					}
+					
+					echo ">";
 					$i++;
 					
 				}

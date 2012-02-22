@@ -1,7 +1,7 @@
 <?
 	include "model/model.php";
 	
-	// VF1 version 1.5
+	// VF1 version 1.6
 ?>
 <html>
 <link rel="shortcut icon" href="include/images/vf1_icon_big.ico" />
@@ -9,11 +9,12 @@
 <link id="style_link" rel=StyleSheet href="include/calendar.css" type="text/css" media=all />
 <script src="include/vf1.js"></script>
 <script type="text/javascript" src="include/calendar.js"></script>
+
 <title><? echo $application_title; ?></title>
 
 <body>
 <div id="main_div">
-<h2><? echo $application_title; ?></h2>
+<h2><? //echo $application_title; ?></h2>
 <?php
 	function ReturnName()
 	{

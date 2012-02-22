@@ -3,10 +3,16 @@
 	$class_obj_id=$_REQUEST['class_obj_id'];
 	
 	$class_obj = MyActiveRecord::FindById($here,$class_obj_id);
+
 	
+	echo "<p class=p1>UPDATE ".$here."</p>";
 	
+	if (isset($_REQUEST['post_update']))
+	{
+		post_update_message($_REQUEST['post_update'],$here);
+	}
 	
-	echo "<p class=p1>UPDATE</p>";
+	//echo "</p>";
 	echo "<table class=table1><form id='update_".$here."' action=".$current_file_name."?here=".$here."&mode=confirm_update&class_obj=".$here."&class_obj_id=".$class_obj_id." method=post>";
 	
 	$w_columns = MyActiveRecord::Columns($class_obj);
@@ -97,6 +103,6 @@
 		}
 	}
 	
-	echo "<tr><td><td><input type=submit><td><input type=reset></table></form>";
+	echo "<tr><td><td><input type=button value='Update this ".$here."' onClick=javascript:confirm_update('update_".$here."')><td><input type=reset></table></form>";
 	
 ?>
