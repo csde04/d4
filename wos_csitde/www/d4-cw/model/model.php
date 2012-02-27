@@ -46,13 +46,17 @@
 		{
 			return " title ";
 		}
-		else if ($class_name == 'access' && $foreign_key == 'accessstautus_id')
+		else if ($class_name == 'access' && $foreign_key == 'accessstatus_id')
 		{
 			return " access status ";
 		}
 		else if ($class_name == 'access' && $foreign_key == 'accesstype_id')
 		{
 			return " access type ";
+		}
+		else if ($class_name == 'access' && $foreign_key == 'venue_id')
+		{
+			return " venue ";
 		}
 		else if ($class_name == 'card' && $foreign_key == 'status_id')
 		{
@@ -109,6 +113,10 @@
 			}	
 		}
 	class stafftype extends MyActiveRecord{
+			function destroy(){
+			}	
+		}
+	class login extends MyActiveRecord{
 			function destroy(){
 			}	
 		}

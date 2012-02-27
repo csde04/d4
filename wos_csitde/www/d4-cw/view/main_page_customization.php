@@ -7,6 +7,9 @@
 		<img src="./include/images/london-olympic-logo.gif"/> 
 		<span class="caption">London 2012 Olympics logo © 2012</a></span>
 	</div>
+	<div class=div_entercardform>
+		<? include "view/view_login.php"; ?>
+	</div>
 <?
 		}
 ?>

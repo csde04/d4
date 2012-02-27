@@ -35,5 +35,3 @@ function confirm_update(form_id)
 }
 
 
-
-
