@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2012 at 11:54 AM
+-- Generation Time: Feb 29, 2012 at 10:15 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `accesstype` (
 --
 
 INSERT INTO `accesstype` (`id`, `referred_as`) VALUES
-(1, 'Enrty'),
+(1, 'Entry'),
 (2, 'Exit');
 
 -- --------------------------------------------------------
@@ -114,16 +114,18 @@ CREATE TABLE IF NOT EXISTS `card` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `referred_as` varchar(40) NOT NULL,
   `staff_id` int(11) NOT NULL,
-  `startdate` date NOT NULL,
   `expirydate` date NOT NULL,
-  `status_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `card`
 --
 
+INSERT INTO `card` (`id`, `referred_as`, `staff_id`, `expirydate`, `status_id`) VALUES
+(1, '', 0, '2012-02-29', 0),
+(2, 'card 2', 0, '2012-02-29', 1);
 
 -- --------------------------------------------------------
 
@@ -140,6 +142,26 @@ CREATE TABLE IF NOT EXISTS `card_venue` (
 -- Dumping data for table `card_venue`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(65) NOT NULL,
+  `referred_as` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `password`, `referred_as`) VALUES
+(1, 'hello', 'John');
 
 -- --------------------------------------------------------
 
