@@ -2,11 +2,11 @@
 
 	$class_obj=$_REQUEST['class_obj'];
 	
-	echo "<p class='p1'>CREATE new ".$class_obj."</p>";
-	if (isset($_REQUEST['post_create']))
-	{
-		post_create_message($_REQUEST['post_create'],$class_obj);
-	}
+	// echo "<p class='p1'>CREATE new ".$class_obj."</p>";
+	//if (isset($_REQUEST['post_create']))
+	//{
+	//	post_create_message($_REQUEST['post_create'],$class_obj);
+	//}
 	
 	
 	echo "<table class=table1><form id=form_create action=".$current_file_name."?here=".$here."&mode=confirm_create&class_obj=".$class_obj." method=post>";

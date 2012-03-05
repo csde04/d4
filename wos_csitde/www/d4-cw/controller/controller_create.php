@@ -19,12 +19,12 @@
 					{
 						?>
 						<script type="text/javascript">
-						alert( "Card does not exist.");
+						alert( "User already has an existing card. Card not created");
 						</script>
 						<?
 						
 						$bad_card = 1;
-						//break;
+						break;
 					}
 				}
 				
