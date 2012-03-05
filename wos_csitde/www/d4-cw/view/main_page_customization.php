@@ -10,6 +10,9 @@
 	<div class=div_entercardform>
 		<? include "view/view_login.php"; ?>
 	</div>
+	<div class=div_entercardform>
+		<? include "view/helpform.php"; ?>
+	</div>
 <?
 		}
 ?>

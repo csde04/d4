@@ -8,16 +8,25 @@ if ( $here == "")
 	<?
 }
 
+if( $here == "help" )
+{
+	?>
+	<div id="div2" class=div_mainpage>
+		<? include 'help.php';?>
+	</div>
+	<?
+}
 
-	// additional menu "enter card" code
-		if ($here == "entercard")
-		{
-			?>
-			<div id="div2" class=div_mainpage>
-				<?  include 'enter_card.php'; ?>
-			</div>
-			<?
-		}
+
+// additional menu "enter card" code
+if ($here == "entercard")
+{
+	?>
+	<div id="div2" class=div_mainpage>
+		<?  include 'enter_card.php'; ?>
+	</div>
+	<?
+}
 
 
 
@@ -36,36 +45,34 @@ if ( $here == "")
 				{
 					if ($mode == "" || $mode == "confirm_search")
 					{
-						echo "<p class='p1'>".$class_value.": <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ Help</p>";
+						echo "<p class='p1'>".$class_value.": <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ ";
 					}
 					else if ($mode == "search")
 					{
-						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a> : search ".$class_value." ¦ Help</p>";
+						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a> : search ".$class_value." ¦ ";
 					}
 				}
 				else 
 				{
 					if ($mode == "" || $mode == "confirm_create" || $mode == "confirm_update" || $mode == "confirm_search")
 					{
-						echo "<p class='p1'>".$class_value.": <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ Help</p>";
+						echo "<p class='p1'>".$class_value.": <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ ";
 					}
 					else if ($mode == "create")
 					{
-						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: create new ".$class_value." ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ Help</p>";
+						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: create new ".$class_value." ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ ";
 					}
 					else if ($mode == "search")
 					{
-						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ search ".$class_value." ¦ Help</p>";
+						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ search ".$class_value." ¦ ";
 					}
 					else if ($mode == "update")
 					{
-						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ Help</p>";
+						echo "<p class='p1'><a href='". $current_file_name."?here=".$class_value."&class_obj=".$class_value."'>".$class_value."</a>: <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ ";
 					}
 				}
+				// add the help link to the end of the sub menu.
+				echo  "<a href='".$current_file_name."?here=help#".$here."'> Help </a></p>";
 			}
 		}
-	
-
-	
-	
 ?>	

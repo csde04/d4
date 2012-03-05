@@ -1,5 +1,6 @@
-	<p class="p1">Simulate Entering a Card via a Card Reader</p>
-
+	<p class="p1">Simulate Entering a Card via a Card Reader ¦ 
+	<?echo "<a href='".$current_file_name."?here=help#".$here."'> Help </a></p>";?>
+		
 	<div class=div_entercardform>
 		<h3>Please enter a card number and select a venue:</h3>
 		<?

@@ -127,7 +127,8 @@ div
 		min-width: 900;
 		margin: 0px auto;
 		border: 0px solid #E4E4E4;	/* white */
-		background-color: #E4E4E4;    /*   999999 dark grey    */		
+		background-color: #E4E4E4;    /*   999999 dark grey    */
+		
 		padding: 0px; 
 		height: 59;
 		z-index:0;
@@ -168,7 +169,7 @@ div
 .div_image .caption
 	{ 
 		padding: .2em;
-		background: #0086f2; 
+		background: #eee; 
 		border-top: 1px solid #555; 
 		display: block;
 		font-family: Courier;
@@ -178,9 +179,9 @@ div
 	
 h2
 	{
+		vertical-align: bottom;
 		font-family: Arial;
-		text-align: center;
-		font-size:7pt;
+		font-size:1pt;
 		background: #ffffff ;	/* 9955FF purple */
 		background: #ffffff;	/* 9955FF purple */
 		padding: 3px 3px 3px 3px;

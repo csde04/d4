@@ -18,7 +18,7 @@
 		echo "<li><a href=". $current_file_name."?here=entercard>enter card</a></li>";
 		}
 	}
-	else if ($here != "")
+	else if ($here != "" )
 	{
 		// stop drawing the menus if the session isnt logged in.
 		if( isset($_SESSION['user']))
