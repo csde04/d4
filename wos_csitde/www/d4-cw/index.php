@@ -17,7 +17,7 @@
 
 <body>
 <div id="main_div">
-<h2><? //echo $application_title; ?></h2>
+<h2>London 2012 Olympics logo © 2012</h2>
 <?php
 	function ReturnName()
 	{
