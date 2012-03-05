@@ -37,6 +37,7 @@
 					{
 						//$related_superclass = substr($wcolumns_key, 0, -3);
 						$related_superclass = find_relatedclass($wcolumns_key,$foreign_keys);
+						
 						foreach ($super_obj = MyActiveRecord::Columns($related_superclass) as $super_obj_attribute => $super_obj_value)
 						{
 							if (strlen($super_obj_attribute)> 2 && !(strpos($super_obj_attribute,"_id")===false))
@@ -51,6 +52,7 @@
 								echo " (".$related_superobj.")";
 							}
 						}
+						
 					}
 				}
 				echo "</select >";

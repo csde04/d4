@@ -1,7 +1,9 @@
 <?
+// Login script that uses the md5 algorithm for the password. 
+// NOTE: This is not secure! it means that passwords dont have to be stored in plain text.
+
 	$userName = $_REQUEST['uname'];
-	$passWord = $_REQUEST['pword'];
-	
+	$passWord = md5( $_REQUEST['pword']);
 	
 	// login
 	if( $mode == "login")

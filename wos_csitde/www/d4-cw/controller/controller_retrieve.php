@@ -2,11 +2,109 @@
 	// this is a hybrid controller/view file
 	// to be amended in future versions of VF1
 	
+	//generate a page selection form
+		if( isset(  $_REQUEST[ 'page']))
+		{
+			$pageNumber = $_REQUEST[ 'page'];
+		}
+		else
+		{
+			$pageNumber = 0;
+		}
+		
+		if( isset(  $_REQUEST[ 'rows']))
+		{
+			$rowsPerPage = $_REQUEST[ 'rows'];
+		}
+		else
+		{
+			$rowsPerPage = 10;
+		}
 	
+	$pageOffset = $rowsPerPage * $pageNumber;
 	
+	// get the number of rows in the table so we can calculate how many pages we can have.
+	$rowCount = MyActiveRecord::Count($class_value);
+	$totPages = $rowCount / $rowsPerPage;
+	
+	/*
+	echo " page ".$pageNumber;
+	echo " perpage ".$rowsPerPage;
+	echo " offset ".$pageOffset;
+	echo " rows ".$rowCount;
+	echo " tot ".$totPages;
+	*/
+?>
+	<form name="pagecontrol">
+	
+		<input type="hidden" name="here" value="<? echo $here; ?>"/>
+		
+		<?
+		// these essentially just forward the values on when the page reloads
+		if( isset( $_REQUEST[ 'mode']))
+		{
+			echo "<input type=hidden name='mode' value='" .$mode. "'/>";
+		}
+		
+		if(  isset( $_REQUEST[ 'class_obj']))
+		{
+			echo "<input type=hidden name='class_obj' value='" .$_REQUEST[ 'class_obj']. "'/>";
+		}
+		
+		if(  isset( $_REQUEST[ 'class_obj_id']))
+		{
+			echo "<input type=hidden name='class_obj_id' value='" .$_REQUEST[ 'class_obj_id']. "'/>";
+		}
+		
+		
+		?>
+		<table name="pageselect" border=0>
+			<tr>
+				<td>Page:
+					<select name="page">
+						<?
+							for( $i = 0; $i < $totPages; $i++)
+							{
+								if( $i == $pageNumber)
+								{
+									echo "<option  selected='selected' value='".$i."' >".$i."</option>";
+								}
+								else
+								{
+									echo "<option value='".$i."'>".$i."</option>";
+								}
+							}
+						?>
+					</select>
+				</td>
+				<td>Records Per Page:
+					<select name="rows">
+						<?
+							// Needs a JS action to set the "page" select to 0 when this is changed.
+							for( $i = 1; $i <= 50; $i++)
+							{
+								if( $i == $rowsPerPage)
+								{
+									echo "<option  selected='selected' value='".$i."' >".$i."</option>";
+								}
+								else
+								{
+									echo "<option value='".$i."'>".$i."</option>";
+								}
+							}
+						?>
+					</select>
+				</td>
+				<td>
+					<input type="submit" value="Go"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+<?
 	if ($mode != "confirm_search") 
 	{
-?>	
+?>
 	<table class=table1>
 		<tr>
 <?
@@ -50,88 +148,86 @@
 		}
 	}
 	
-	
-	
-	
-
-	$obj_class = MyActiveRecord::FindBySql($class_value, 'SELECT * FROM '.$class_value.' WHERE id > -1 ORDER BY id');
+	$obj_class = MyActiveRecord::FindBySql($class_value, 'SELECT * FROM '.$class_value.' WHERE id > -1 ORDER BY id LIMIT '.$pageOffset.' , '.$rowsPerPage );
 	
 	foreach ($obj_class as $obj_key => $obj_value)
 	{
-		echo "<tr>";
-		foreach (MyActiveRecord::Columns($class_value) as $obj_attribute => $obj_attr_value)
-		{
-			if ($obj_attribute=="id")
+		// Restricts the rows being drawn to the specified page.
+		//$rowCount++;
+		//if( $rowCount <= $pageOffset + $rowsPerPage && $rowCount > $pageOffset)
+		//{
+			echo "<tr>";
+			// this draws the rows in the table
+			foreach (MyActiveRecord::Columns($class_value) as $obj_attribute => $obj_attr_value)
 			{
-				// ####################################### if here = access do not allow update ################################# //
-				if( $here == "access")
+				if ($obj_attribute=="id")
+				{
+					// ####################################### if here = access do not allow update ################################# //
+					if( $here == "access")
+					{
+						echo "<td>".$obj_value->$obj_attribute;
+					}
+					else
+					{
+						echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+					}
+				}
+				else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
+				{
+					//$related_class = substr($obj_attribute, 0, -3);
+					$related_class = find_relatedclass($obj_attribute,$foreign_keys);
+					//echo "<td>related_class = ".$related_class;
+					echo "<td>".$obj_value->$obj_attribute.". ".$obj_value->find_parent($related_class,$obj_attribute)->referred_as;
+					
+					/*
+					if($obj_attribute == "from_location_id")
+					{
+						echo "CIAO!!!! ".$related_class." - ".$obj_value->find_parent($related_class,$obj_attribute)->referred_as;
+					}
+					*/
+				
+				}
+				else
 				{
 					echo "<td>".$obj_value->$obj_attribute;
 				}
-				else
-				{
-					echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
-				};
 			}
-			else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
+			//////
+			foreach ($join_tables as $jt_key => $jt_value)
 			{
-				//$related_class = substr($obj_attribute, 0, -3);
-				$related_class = find_relatedclass($obj_attribute,$foreign_keys);
-				//echo "<td>related_class = ".$related_class;
-				echo "<td>".$obj_value->$obj_attribute.". ".$obj_value->find_parent($related_class,$obj_attribute)->referred_as;
-				
-				/*
-				if($obj_attribute == "from_location_id")
-				{
-					echo "CIAO!!!! ".$related_class." - ".$obj_value->find_parent($related_class,$obj_attribute)->referred_as;
+				$pos = strpos($jt_value,$here);
+				if($pos === false) {
+								// string needle NOT found in haystack
 				}
-				*/
-				
-			}
-			else
-			{
-				echo "<td>".$obj_value->$obj_attribute;
-			}
-		}
-		
-		//////
-		
-		foreach ($join_tables as $jt_key => $jt_value)
-	{
-		$pos = strpos($jt_value,$here);
-		if($pos === false) {
-						// string needle NOT found in haystack
-		}
-		else {		// string needle found in haystack
-						
-			$there = str_replace("_","",$jt_value);
-			$there = str_replace($here,"",$there);
-			
-			echo "<td>";
-			$i = 0;
-			foreach ($obj_value->find_attached($there) as $_fakey => $_favalue)
-			{
-				if ($i == 0)
-				{
-				echo " ".$_favalue->referred_as;
-				$i++;
-				}
-				else
-				{
-				echo ", ".$_favalue->referred_as;
-				$i++;
+				else {		// string needle found in haystack
+								
+					$there = str_replace("_","",$jt_value);
+					$there = str_replace($here,"",$there);
+					
+					echo "<td>";
+					$i = 0;
+					foreach ($obj_value->find_attached($there) as $_fakey => $_favalue)
+					{
+						if ($i == 0)
+						{
+						echo " ".$_favalue->referred_as;
+						$i++;
+						}
+						else
+						{
+						echo ", ".$_favalue->referred_as;
+						$i++;
+						}
+					}
+					
+					//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
+					//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
+					//include "view_displayjt.php";
+					//echo "</div>";
 				}
 			}
-			
-			//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
-			//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
-			//include "view_displayjt.php";
-			//echo "</div>";
-		}
-	}
-		
-		///////
-		
+		//}
+			///////
 	}
 	
 ?>
@@ -303,9 +399,11 @@
 	
 	//////////
 	
-	//echo "<p>".$strSQLsearch;
+	//echo "<p>".$strSQLsearch ."LIMIT '".$pageOffset."' , '".$rowsPerPage;
 	
-	$obj_class = MyActiveRecord::FindBySql($class_value, $strSQLsearch);
+	// searches the DB with the correct limits according to the page and number of rows.
+	$obj_class = MyActiveRecord::FindBySql($class_value, $strSQLsearch .'LIMIT '.$pageOffset.' , '.$rowsPerPage);
+	//$obj_class = MyActiveRecord::FindBySql($class_value, $strSQLsearch ."LIMIT 0 , 2");
 	
 	foreach ($obj_class as $obj_key => $obj_value)
 	{
@@ -314,7 +412,15 @@
 		{
 			if ($obj_attribute=="id")
 			{
-				echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+				// ####################################### if here = access do not allow update ################################# //
+				if( $here == "access")
+				{
+					echo "<td>".$obj_value->$obj_attribute;
+				}
+				else
+				{
+					echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+				}
 			}
 			else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
 			{

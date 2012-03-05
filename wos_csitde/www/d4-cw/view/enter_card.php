@@ -26,7 +26,7 @@
 						$venues = MyActiveRecord::FindBySql('Venue', 'SELECT * FROM venue WHERE id > -1 ORDER BY id');
 						foreach ($venues as $venue)
 						{
-							?><option value="<?echo $venue->id;?>"><?echo $venue->id;?> - <?echo $venue->referred_as;?></option><?
+							echo "<option value='".$venue->id."'>".$venue->id." - ".$venue->referred_as."</option>";
 						}
 					?>
 				</select>
@@ -42,7 +42,7 @@
 						$atypes = MyActiveRecord::FindBySql('Accesstype', 'SELECT * FROM accesstype WHERE id > -1 ORDER BY id');
 						foreach ($atypes as $atype)
 						{
-							?><option value="<?echo $atype->id;?>"><?echo $atype->id;?> - <?echo $atype->referred_as;?></option><?
+							echo "<option value='".$atype->id."'>".$atype->id." - ".$atype->referred_as."</option>";
 						}
 					?>
 				</select>
@@ -110,10 +110,19 @@
 				}
 				else
 				{
-					$currTime = time();
+					// NEED TO FIX THIS SO IT DEALS WITH DATES INSTEAD OF TIMESTAMPSSSS!!!!
+					$currTime = strtotime( date("Y-m-d"));
 					$startTime = $card->get_timestamp('startdate');
 					$endTime = $card->get_timestamp('expirydate');
-
+					
+					/*
+					$currDate = date("Y-m-d");
+					$startDate = $card->startdate;
+					$endDate = $card->expirydate;
+					
+					echo $currDate. " - ".$currTime." ? " .$startDate. " - ".$startTime." || " .$endDate. " - " .$endTime;
+					*/
+					
 					// check if card is NOT valid in this time frame ie Expired
 					if( $currTime > $endTime || $currTime < $startTime)
 					{
@@ -163,7 +172,7 @@
 		*/
 		$arrAccess =  array('card_id' => $cardNumVal, 
 									//'time' => "FROM_UNIXTIME('".$currTime."')", 
-									'time' => date( 'Y-m-d H:i:s', $currTime),
+									'time' => date( 'Y-m-d H:i:s', time()),
 									'accesstype_id' => $aTypeVal, 
 									'refered_as' => '-', 
 									'accessstatus_id' => $accessStat, 

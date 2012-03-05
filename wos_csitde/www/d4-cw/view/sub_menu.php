@@ -1,6 +1,14 @@
-<?  include 'main_page_customization.php'; ?>
-
 <?
+if ( $here == "")
+{  
+	?>
+	<div id="div2" class=div_mainpage>
+		<? include 'main_page_customization.php';?>
+	</div>
+	<?
+}
+
+
 	// additional menu "enter card" code
 		if ($here == "entercard")
 		{
