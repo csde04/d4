@@ -4,8 +4,9 @@
 	if( isset($_SESSION['user']))
 	{
 	?>
-		Click <a href=<?echo $current_file_name."?here=help";?>><b>here</b></a>
+		<p>Click <a href=<?echo $current_file_name."?here=help";?>><b>here</b></a>
 		to go to the help page.
+		</p>
 	<?
 	}
 	else

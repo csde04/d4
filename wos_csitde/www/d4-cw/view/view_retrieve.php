@@ -7,7 +7,8 @@
 	$w_columns = MyActiveRecord::Columns($class_obj);
 	foreach($w_columns as $wcolumns_key => $wcolumns_value)
 	{
-		if(MyActiveRecord::GetType($class_obj,$wcolumns_key) == 'date')
+		// If its a date OR a datetime?!?!? 
+		if(MyActiveRecord::GetType($class_obj,$wcolumns_key))
 		{
 			echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value='".$_REQUEST['input_'.$wcolumns_key]."'>";
 			echo "<td><input type=button value='Set Date' onclick=displayDatePicker('input_".$wcolumns_key."',false,'ymd','-'); >";
