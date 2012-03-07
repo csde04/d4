@@ -107,30 +107,9 @@
 						if ($key_REQUEST != "input_id")
 						{
 							
-							if($here == 'card' && $mode == 'confirm_create' && $key_REQUEST == 'input_staff_id')
+							if($here == 'card' && $mode == 'confirm_create' && $key_REQUEST == '')
 							{
 								
-								//THIS CODE SHOULD BE DELETED!!!!!!!
-								// $card_obj = MyActiveRecord::FindBySql("card", "SELECT * FROM card WHERE staff_id='".$temp_id."' AND status_id=1");
-								// if (count($card_obj) != 0)
-								// {
-									// ?>
-									// <script type="text/javascript">
-									// alert( "User already has an existing card. Card not created");
-									// </script>
-									// <?
-									
-									// $bad_card = 1;
-									// break;
-								// }
-								
-								/**
-								*validating card activity periods!!
-								*check for expired cards that are greater than the current timestamp
-								*/
-								
-								//startString = MyActiveRecord::DbDate(1331510400);
-								//$endString = MyActiveRecord::DbDate(1331596800);
 							}
 							
 							$pino = $pino + array(substr($key_REQUEST,6) => $value_REQUEST);
@@ -145,6 +124,14 @@
 				{
 					/*create status_id field*/
 				
+					if(strtotime(date("Y-m-d")) == $temp_start)
+					{
+						$pino = $pino + array("status_id" => 1);
+					}
+					else
+					{
+						$pino = $pino + array("status_id" => 2);
+					}
 				
 					//echo "<P>.".print_r($pino);
 				   $this_obj = MyActiveRecord::Create($class_obj, $pino );
