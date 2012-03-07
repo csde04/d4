@@ -35,3 +35,12 @@ function confirm_update(form_id)
 }
 
 
+// Additional function which Confirms cancellation of a card
+function confirm_cancel_card( file_name, obj_id)
+{
+	if(confirm('Are you sure you want to Cancel Card ' + obj_id + '?'))
+	{
+		document.location = file_name+"?"+"&here=card&mode=cancel_card&card_id="+obj_id;
+	}
+}
+

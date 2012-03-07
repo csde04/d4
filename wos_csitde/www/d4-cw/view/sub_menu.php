@@ -54,7 +54,7 @@ if ($here == "entercard")
 				}
 				else 
 				{
-					if ($mode == "" || $mode == "confirm_create" || $mode == "confirm_update" || $mode == "confirm_search")
+					if ($mode == "" || $mode == "confirm_create" || $mode == "confirm_update" || $mode == "confirm_search" || $mode == "cancel_card")
 					{
 						echo "<p class='p1'>".$class_value.": <a href='". $current_file_name."?here=".$class_value."&mode=create&class_obj=".$class_value."'>create new ".$class_value."</a> ¦ <a href='". $current_file_name."?here=".$class_value."&mode=search&class_obj=".$class_value."'>search ".$class_value."</a> ¦ ";
 					}

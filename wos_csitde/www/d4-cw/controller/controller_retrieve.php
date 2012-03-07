@@ -2,6 +2,18 @@
 	// this is a hybrid controller/view file
 	// to be amended in future versions of VF1
 	
+	// Set the status of the card if the mode==cancel_card using the card id
+	if( $mode == "cancel_card")
+	{
+		$id = $_REQUEST[ 'card_id'];
+		$toCancel = MyActiveRecord::FindById( 'card', $id);
+		
+		// set the status id to 3 (cancelled)
+		$toCancel->status_id = 3; 
+		$toCancel->save();
+	}
+	
+	
 	//generate a page selection form
 		if( isset(  $_REQUEST[ 'page']))
 		{
@@ -170,6 +182,13 @@
 					else
 					{
 						echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+						
+						// ################################### Add a cancel button if here == card ################################# //
+						if( $here == "card" && $obj_value->status_id != 3)
+						{
+							// Make the "C" image link
+							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute." title='Cancel this card');><img src='/d4-cw/include/images/cancel.png' /></a>";
+						}
 					}
 				}
 				else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
@@ -420,6 +439,13 @@
 				else
 				{
 					echo "<td><a href=javascript:update_obj('".$current_file_name."','".$class_value."',".$obj_value->$obj_attribute.");>".$obj_value->$obj_attribute."</a>";
+					
+					// ################################### Add a cancel button if here == card ################################# //
+						if( $here == "card" && $obj_value->status_id != 3)
+						{
+							// Make the "C" image link
+							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute." title='Cancel this card');><img src='/d4-cw/include/images/cancel.png' /></a>";
+						}
 				}
 			}
 			else if (strlen($obj_attribute)> 2 && !(strpos($obj_attribute,"_id")===false))
