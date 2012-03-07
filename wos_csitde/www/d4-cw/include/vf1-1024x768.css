@@ -181,7 +181,7 @@ h2
 	{
 		vertical-align: bottom;
 		font-family: Arial;
-		font-size:1pt;
+		font-size:8pt;
 		background: #ffffff ;	/* 9955FF purple */
 		background: #ffffff;	/* 9955FF purple */
 		padding: 3px 3px 3px 3px;
@@ -189,6 +189,7 @@ h2
 		color: #ffffff   ;
 		background-image: url('images/header.jpg');
 		height: 90px;
+		text-align: center;
 	}
 
 h3
@@ -200,6 +201,27 @@ h3
 		padding: 3px 3px 3px 3px;
 		margin: 0px 0px 0px 0px; 
 		color: #ffffff ;
+	}
+
+/* HELP PAGE HEADERS */
+h5
+	{
+		vertical-align: bottom;
+		font-family: Arial;
+		font-size:12pt;
+		padding: 3px 3px 3px 3px;
+		margin: 0px 0px 0px 0px; 
+		color: #e00094 ;
+	}
+
+h6
+	{
+		vertical-align: bottom;
+		font-family: Arial;
+		font-size:14pt;
+		padding: 3px 3px 3px 3px;
+		margin: 0px 0px 0px 0px; 
+		color: #e00094 ;
 	}
 
 p
@@ -280,11 +302,11 @@ li{
 	{
 		min-width: 60px;
 		font-weight:bold;
-		color:#000000;
+		color:#ffffff;
 		vertical-align:middle; 
 		text-align:center;
-		border:2px solid #000000; 
-		background: #ffffff;
+		border:0px solid #000000; 
+		background: #e00094;
 		padding: 2px 2px 2px 2px;
 		font-size:15px;
 	}

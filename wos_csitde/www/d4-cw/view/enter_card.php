@@ -2,7 +2,7 @@
 	<?echo "<a href='".$current_file_name."?here=help#".$here."'> Help </a></p>";?>
 		
 	<div class=div_entercardform>
-		<h3>Please enter a card number and select a venue:</h3>
+		<h3>Enter a Card</h3>
 		<?
 			// code to show a form with a drop down box with all venues and a field to enter a card number.
 		?>
@@ -51,7 +51,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" value="Scan"/></td>
+			<td><input type="submit" value="Enter"/></td>
 		</tr>
 		</table> 
 		</form> 
@@ -111,7 +111,7 @@
 				}
 				else
 				{
-					// NEED TO FIX THIS SO IT DEALS WITH DATES INSTEAD OF TIMESTAMPSSSS!!!!
+					// 
 					$currTime = strtotime( date("Y-m-d"));
 					$startTime = $card->get_timestamp('startdate');
 					$endTime = $card->get_timestamp('expirydate');
@@ -162,18 +162,9 @@
 		$card->save();
 		
 		// Insert into access table a new log record
-		/*$sqlout = MyActiveRecord::Query( 'UPDATE access SET 
-												card_id='.$cardNumVal.', 
-												time=FROM_UNIXTIME('.$time.'), 
-												accesstype_id='.$aTypeVal.',
-												accessstatus_id='.$accessStat.',
-												venue_id='.$venueVal);
-		
-		echo $sqlout;
-		*/
 		$arrAccess =  array('card_id' => $cardNumVal, 
-									//'time' => "FROM_UNIXTIME('".$currTime."')", 
-									'time' => date( 'Y-m-d H:i:s', time()),
+									'date' => date( 'Y-m-d', time()),
+									'time' => date( 'H:i:s', time()),
 									'accesstype_id' => $aTypeVal, 
 									'refered_as' => '-', 
 									'accessstatus_id' => $accessStat, 
