@@ -34,6 +34,11 @@
 entered fields. If "OR" is selected, any staff members that meet any of the search terms will be returned<br>
 3. Hit the "search" button, the search results will then be returned on the left hand side<br>
 </p>
+<p> To update the details of a staff member, first click on the id number of the staff member you are wanting to update, 
+then a list of fields will appear on the right hand side</p>
+<p>1. Enter the details that you are wanting to change<br>
+2. Click on the update button, the details that you changed should be updated on the left hand side.<br>
+</p>
 
 
 
@@ -54,6 +59,16 @@ entered fields. If "OR" is selected, any staff members that meet any of the sear
 entered fields. If "OR" is selected, any cards that meet any of the search terms will be returned<br>
 3. Hit the "search" button, the search results will then be returned on the left hand side<br>
 </p>
+<p> To update the details of a card, first click on the id number of the card you are wanting to update, then a list of fields 
+will appear on the right hand side</p>
+<p>1. Enter the details that you are wanting to change<br>
+2. Click on the update button, the details that you changed should be updated on the left hand side.<br>
+</p>
+<p> To cancel a card, click on the blue "C" button next to the card you are wanting to cancel </p>
+<p> 1. A notification then pops up asking if you are sure that you want to cancel the card <br>
+2. Click ok on the notification to successfully cancel the card, or click cancel to keep the card active<br>
+3. If ok isn't clicked, the "C" button then isn't displayed for that card.
+</p>
 
 
 
@@ -72,6 +87,11 @@ entered fields. If "OR" is selected, any cards that meet any of the search terms
 entered fields. If "OR" is selected, any venues that meet any of the search terms will be returned<br>
 3. Hit the "search" button, the search results will then be returned on the left hand side<br>
 </p>
+<p> To update the details of a venue, first click on the id number of the venue you are wanting to update, then a list of fields 
+will appear on the right hand side</p>
+<p>1. Enter the details that you are wanting to change<br>
+2. Click on the update button, the details that you changed should be updated on the left hand side.<br>
+</p>
 
 
 
@@ -88,6 +108,11 @@ entered fields. If "OR" is selected, any venues that meet any of the search term
 2. Select either "AND" or "OR" from the drop down menu. If "AND" is selected, the search will return results that include all of the 
 entered fields. If "OR" is selected, any agencies that meet any of the search terms will be returned<br>
 3. Hit the "search" button, the search results will then be returned on the left hand side<br>
+</p>
+<p> To update the details of an agency, first click on the id number of the agency you are wanting to update, then a list of fields 
+will appear on the right hand side</p>
+<p>1. Enter the details that you are wanting to change<br>
+2. Click on the update button, the details that you changed should be updated on the left hand side.<br>
 </p>
 
 

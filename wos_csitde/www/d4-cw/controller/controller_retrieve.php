@@ -88,9 +88,25 @@
 							}
 						?>
 					</select>
+					<?
+						// if on the first page only draw the next link.
+						if( $pageNumber == 0)
+						{
+							
+						}
+						// if on the last page ... 
+						else if( $pageNumber == $totPages)
+						{
+							
+						}
+						else
+						{
+							
+						}
+					?>
 				</td>
 				<td>Records Per Page:
-					<select name="rows">
+					<select name="rows" >
 						<?
 							// Needs a JS action to set the "page" select to 0 when this is changed.
 							for( $i = 1; $i <= 50; $i++)
@@ -187,7 +203,7 @@
 						if( $here == "card" && $obj_value->status_id != 3)
 						{
 							// Make the "C" image link
-							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute." title='Cancel this card');><img src='/d4-cw/include/images/cancel.png' /></a>";
+							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute."); title='Cancel this card'><img src='/d4-cw/include/images/cancel.png' /></a>";
 						}
 					}
 				}
@@ -444,7 +460,7 @@
 						if( $here == "card" && $obj_value->status_id != 3)
 						{
 							// Make the "C" image link
-							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute." title='Cancel this card');><img src='/d4-cw/include/images/cancel.png' /></a>";
+							echo " - <a href=javascript:confirm_cancel_card('".$current_file_name."',".$obj_value->$obj_attribute."); title='Cancel this card'><img src='/d4-cw/include/images/cancel.png' /></a>";
 						}
 				}
 			}
