@@ -27,8 +27,8 @@
 			}
 			else
 			{
-				
-				if(!($here == "card" && $mode == "create" && $wcolumns_key == "status_id"))
+				/*######################################################################################################################################################*/
+				if(!($here == "card" && $mode == "create" && ($wcolumns_key == "status_id" || $wcolumns_key == "referred_as")))
 				{
 					echo "<tr><td>".$wcolumns_key."<td><input type=text id='input_".$wcolumns_key."' name='input_".$wcolumns_key."' value=''>";
 					
