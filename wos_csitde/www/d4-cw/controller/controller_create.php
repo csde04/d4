@@ -34,7 +34,7 @@
 	{
 		?>
 		<script type="text/javascript">
-		alert( "Check field entry and try again, all fields must be entered!!");
+		alert( "Check field entry and try again, all fields must be entered");
 		</script>
 		<?
 	}
@@ -65,7 +65,7 @@
 		{
 			?>
 			<script type="text/javascript">
-			alert( "Please Enter a correct card validity period.");
+			alert( "Please Enter a correct card validity period");
 			</script>
 			<?
 			$bad_date = 1;
