@@ -502,7 +502,16 @@
 			}
 			else
 			{
-				echo "<td>".$obj_value->$obj_attribute;
+				/*#################################################################################################################################################################*/
+			
+				if($obj_attribute == "referred_as" && ($here == "card" || $here == "access"))
+				{
+					//do nothing
+				}
+				else
+				{
+					echo "<td>".$obj_value->$obj_attribute;
+				}
 			}
 		}
 		

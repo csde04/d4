@@ -61,7 +61,7 @@
 
 
 		/**compare input date constraints with current time and other boundary controls**/
-		if($checkDate = 1 && ($temp_start > $temp_end || $temp_end < $temp_start || strtotime(date("Y-m-d")) > $temp_start || strtotime(date("Y-m-d")) > $temp_end))
+		if($checkDate == 1 && ($temp_start > $temp_end || $temp_end < $temp_start || strtotime(date("Y-m-d")) > $temp_start || strtotime(date("Y-m-d")) > $temp_end))
 		{
 			?>
 			<script type="text/javascript">
