@@ -52,6 +52,7 @@ then a list of fields will appear on the right hand side</p>
 3. Choose the expiry date on the calendar. After this date, the card can no longer be used to access venues<br>
 4. Enter the venue that the card will grand access to<br>
 5. Hit the "Create new card" button to create the card, or "Reset" to empty all the fields and start again<br>
+The card status will be set to expired and changed to valid when scaned for the first time<br>
 </p>
 <p>To search for a card, first click on the "search card" tab, then a list of fields will appear on the right hand side</p>
 <p> 1. Enter the known details of the card that you are wanting to search for.<br>
