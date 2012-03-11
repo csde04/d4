@@ -73,22 +73,24 @@
 			}
 		}
 	}
-	
-	foreach ($join_tables as $jt_key => $jt_value)
-	{
-		$pos = strpos($jt_value,$here);
-		if($pos === false) {
-						// string needle NOT found in haystack
-		}
-		else {		// string needle found in haystack
-						
-			$there = str_replace("_","",$jt_value);
-			$there = str_replace($here,"",$there);
 
-			include "view_displayjt.php";
+	if($here != "venue")
+	{
+		foreach ($join_tables as $jt_key => $jt_value)
+		{
+			$pos = strpos($jt_value,$here);
+			if($pos === false) {
+							// string needle NOT found in haystack
+			}
+			else {		// string needle found in haystack
+							
+				$there = str_replace("_","",$jt_value);
+				$there = str_replace($here,"",$there);
+
+				include "view_displayjt.php";
+			}
 		}
 	}
-	
 	
 	echo "<tr><td><td><input type=button value='Create new ".$here."' onClick=javascript:confirm_create('form_create');><td><input type=reset >";
 	echo "</table></form>";

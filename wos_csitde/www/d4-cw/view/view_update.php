@@ -83,29 +83,34 @@
 			}
 			else
 			{
-				echo "<tr><td>".$wcolumns_key."<td><input type=text name='input_".$wcolumns_key."' value='".$class_obj->$wcolumns_key."'>";
+				if(!($wcolumns_key == "referred_as") && (!($here == "card")))
+				{
+					echo "<tr><td>".$wcolumns_key."<td><input type=text name='input_".$wcolumns_key."' value='".$class_obj->$wcolumns_key."'>";
+				}
 			}
 		}
 	}
 	
-	foreach ($join_tables as $jt_key => $jt_value)
+	if($here != "venue")
 	{
-		$pos = strpos($jt_value,$here);
-		if($pos === false) {
-						// string needle NOT found in haystack
-		}
-		else {		// string needle found in haystack
-						
-			$there = str_replace("_","",$jt_value);
-			$there = str_replace($here,"",$there);
-			
-			//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
-			//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
-			include "view_displayjt.php";
-			//echo "</div>";
+		foreach ($join_tables as $jt_key => $jt_value)
+		{
+			$pos = strpos($jt_value,$here);
+			if($pos === false) {
+							// string needle NOT found in haystack
+			}
+			else {		// string needle found in haystack
+							
+				$there = str_replace("_","",$jt_value);
+				$there = str_replace($here,"",$there);
+				
+				//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
+				//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
+				include "view_displayjt.php";
+				//echo "</div>";
+			}
 		}
 	}
-	
 	echo "<tr><td><td><input type=button value='Update this ".$here."' onClick=javascript:confirm_update('update_".$here."')><td><input type=reset></table></form>";
 	
 ?>

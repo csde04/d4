@@ -172,15 +172,17 @@
 						// string needle NOT found in haystack
 		}
 		else {		// string needle found in haystack
-						
-			$there = str_replace("_","",$jt_value);
-			$there = str_replace($here,"",$there);
-			
-			echo "<th>associated ".$there;
-			//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
-			//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
-			//include "view_displayjt.php";
-			//echo "</div>";
+			if($here != "venue")
+			{
+				$there = str_replace("_","",$jt_value);
+				$there = str_replace($here,"",$there);
+				
+				echo "<th>associated ".$there;
+				//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
+				//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
+				//include "view_displayjt.php";
+				//echo "</div>";
+			}
 		}
 	}
 	
@@ -251,30 +253,32 @@
 								// string needle NOT found in haystack
 				}
 				else {		// string needle found in haystack
-								
-					$there = str_replace("_","",$jt_value);
-					$there = str_replace($here,"",$there);
-					
-					echo "<td>";
-					$i = 0;
-					foreach ($obj_value->find_attached($there) as $_fakey => $_favalue)
+					if($here != "venue")
 					{
-						if ($i == 0)
+						$there = str_replace("_","",$jt_value);
+						$there = str_replace($here,"",$there);
+						
+						echo "<td>";
+						$i = 0;
+						foreach ($obj_value->find_attached($there) as $_fakey => $_favalue)
 						{
-						echo " ".$_favalue->referred_as;
-						$i++;
+							if ($i == 0)
+							{
+							echo " ".$_favalue->referred_as;
+							$i++;
+							}
+							else
+							{
+							echo ", ".$_favalue->referred_as;
+							$i++;
+							}
 						}
-						else
-						{
-						echo ", ".$_favalue->referred_as;
-						$i++;
-						}
+						
+						//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
+						//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
+						//include "view_displayjt.php";
+						//echo "</div>";
 					}
-					
-					//echo "<script>document.getElementById('div_right').style.height = '230px';document.getElementById('div_right').style.border = 'none';</script><div id=div3>";
-					//echo "<p class=p1>manage the ".$jt_value." relationship by the following criterion: ";
-					//include "view_displayjt.php";
-					//echo "</div>";
 				}
 			}
 		//}
